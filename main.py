@@ -104,6 +104,5 @@ async def submit_report(request: Request):
     body = await request.json()
     email=body["email"]
     password=body["password"]
-    device=body["device"]
-    data=login_custom(email, password, device)
+    data=login_custom(email, password)
     return data
