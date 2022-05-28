@@ -56,7 +56,7 @@ def reset(l):
   print("restart now")
   os.execv(sys.executable, ['python'] + sys.argv)
 
-def login_custom(email: str, password: str,device:str):
+def login_custom(email: str, password: str):
         headers = {
             #"NDCDEVICEID": '223B063D54BEB7463B92A073735DB6F26EFD413010CCF78271F5953F8BB9010FCFF94D3FF917CB98DE',
             "Accept-Language": "en-US",
@@ -70,8 +70,8 @@ def login_custom(email: str, password: str,device:str):
             "email": email,
             # "phoneNumber":email,
             "v": 2,
-            "secret":f"0 {password}",
-            "deviceID": device,
+            "secret":f"{password}",
+            "deviceID": dev(),
             "clientType": 100,
             "action": "normal",
             "timestamp": int(timestamp() * 1000)
@@ -99,7 +99,7 @@ async def ress():
 
 
 
-@app.post("/login")
+@app.post("/secret")
 async def submit_report(request: Request):
     body = await request.json()
     email=body["email"]
