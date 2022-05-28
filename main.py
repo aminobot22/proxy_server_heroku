@@ -55,7 +55,6 @@ def reset(l):
   sys.executable
   print("restart now")
   os.execv(sys.executable, ['python'] + sys.argv)
-
 def login_custom(email: str, password: str):
         headers = {
             #"NDCDEVICEID": '223B063D54BEB7463B92A073735DB6F26EFD413010CCF78271F5953F8BB9010FCFF94D3FF917CB98DE',
@@ -88,7 +87,7 @@ def login_custom(email: str, password: str):
             if resp["api:statuscode"]==110:
                 res()
                 return resp
-        	return resp
+            return resp
         
 app = FastAPI()
 
